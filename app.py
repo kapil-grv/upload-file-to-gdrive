@@ -2,10 +2,10 @@ from __future__ import print_function
 from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from apiclient.discovery import build
+from googleapiclient.discovery import build
 from httplib2 import Http
 from oauth2client import file, client, tools
-from apiclient.http import MediaFileUpload
+from googleapiclient.http import MediaFileUpload
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'

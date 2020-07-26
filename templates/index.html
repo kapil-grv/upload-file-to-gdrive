@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>CapSpatial File Uploader</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">File Uploader</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>File Format</th>
+            <th>Upload Date</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.name }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.file_format }}</td>
+                <td>{{ task.date_created.date() }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <div>
+        <input type="button" onclick="window.location.href='/upload';" value="Upload New Data" />
+    </div>
+<!--
+    <div class="form">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <input type="text" name="name" id="name" value="name">
+            <input type="text" name="description" id="description" value="description">
+            <input type="text" name="file_format" id="file_format" value="file_format">
+            <input type="file" name="fileUpload" id="fileUpload" />
+            <input type="submit" value="Upload Data">
+        </form>
+    </div> -->
+</div>
+{% endblock %}
